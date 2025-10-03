@@ -324,6 +324,17 @@ section#contacto .links p {
   margin-right: 10px;
 }
 
+section#referencias {
+  background-color: red;
+}
+
+section#referencias .blockquotes-container {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  margin-top: 20px;
+}
+
 footer {
   background: rgba(0, 0, 0, 0.5);
   backdrop-filter: blur(20px);

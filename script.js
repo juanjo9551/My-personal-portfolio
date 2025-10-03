@@ -15,6 +15,7 @@ const observer = new IntersectionObserver((entries) => {
 
 document.querySelectorAll(".hidden").forEach((el) => observer.observe(el));
 
+//boton volver al inicio
 const botonVolverInicio = document.getElementById("volverInicio");
 document.addEventListener("scroll", () => {
   if (window.scrollY > 100) {
