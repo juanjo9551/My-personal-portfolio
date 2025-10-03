@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="scrollAnimations.css">
+  </head>
+  <body>
+    <header>
+      <nav>
+        <logo class="logo">MyPortfolio</logo>
+        <input type="checkbox" id="menu-toggle">
+        <ul id="nav-links">
+          <li><a href="#inicio">Inicio</a></li>
+          <li><a href="#sobre-mi">Sobre mi</a></li>
+          <li><a href="#proyectos">Proyectos</a></li>
+          <li><a href="#contacto">Contacto</a></li>
+          <li><a href="#referencias">Referencias</a></li>
+        </ul>
+        
+        <label id="threebars" for="menu-toggle">
+          <div></div>
+          <div></div>
+          <div></div>
+        </label>
+        
+      </nav>
+    </header>
+    <!-- 🏠 Inicio -->
+    <section id="inicio">
+      <div class="contenido-inicio">
+        <h1>¡Hola! Soy Juan José Fernandez</h1>
+        <p>
+          Estudiante de Ciencias de la Computación apasionado por crear
+          experiencias digitales únicas y funcionales, apasionado de las
+          matemáticas aplicadas a la computación y la aplicación de la
+          tecnología en el mundo para la solución de problemas
+        </p>
+        <p>
+          Este es mi espacio personal donde comparto quién soy, qué hago y
+          algunos de mis proyectos favoritos.
+        </p>
+      </div>
+      <img src="fotopersonal.jpg" alt="Foto personal" />
+    </section>
+
+    <!-- 👨‍💻 Sobre mí -->
+    <section id="sobre-mi">
+      <h2>Sobre mí</h2>
+      <p>
+        Soy un estudiante de 2do año de
+        <strong>Licenciatura en Ciencias de la Computación</strong> en la
+        Facultad de Ciencias Exactas, Físicas y Naturales con una fuerte
+        curiosidad por la informática. Desde que escribí mi primera línea de
+        código, me cautivó la solución de problemas
+      </p>
+      <p>
+        Actualmente me enfoco en <strong>Python</strong> para la inteligencia
+        artificial, ingeniería de datos y backend explorando frameworks como
+        <strong>React</strong> y para el front-end.
+      </p>
+      <p>
+        Fuera del código, me apasiona el arte digital y la fotografía, lo que
+        aporta un toque creativo a mi trabajo como desarrollador.
+      </p>
+    </section>
+
+    <!-- 📂 Proyectos -->
+    <section id="proyectos">
+      <h2>Proyectos</h2>
+      <ul>
+        <li>
+          <div>
+          <strong>PixelArt Studio </strong><p><i>🎨</i></p><p>Aplicación web para crear
+          dibujos pixelados y exportarlos como PNG. Desarrollada con JavaScript
+          y Canvas.</p>
+          </div>
+        </li>
+        <li>
+          <div>
+          <strong>EcoShop </strong> <p><i>♻️</i></p><p>Prototipo de e-commerce con carrito
+          dinámico en JavaScript y diseño responsive con CSS Grid y Flexbox.
+          </p>
+          </div>
+        </li>
+        <li>
+          <div>
+          <strong>Taskify </strong><p><i>✅</i></p> <p>Gestor de tareas minimalista con
+          almacenamiento en LocalStorage.
+            </p>
+          </div>
+        </li>
+        <li>
+          <div>
+          <strong>WeatherNow </strong><p><i>🌦️</i></p><p>App que consume una API de clima y
+          muestra animaciones SVG en tiempo real.</p>
+        </div>
+      </li>
+      </ul>
+    </section>
+
+    <!-- 📞 Contacto -->
+    <section id="contacto">
+      <div class="links-container">
+      <h2>Contacto</h2>
+      <p>¿Quieres colaborar en un proyecto o simplemente saludar?</p>
+      <ul class="links">
+        <li>
+          <p>✉️ Email:  </p> 
+          <a href="mailto:juanjo22fernandez@gmail.com"
+            >juanjo22fernandez@gmail.com</a
+          >
+        </li>
+        <li>
+          <p>💼 LinkedIn:  </p> 
+          <a href="https://linkedin.com/in/juan-fernandez-343208247"
+            >linkedin.com/in/juan-fernandez-343208247</a
+          >
+        </li>
+        <li>
+          <p>🐙 GitHub:    </p><a href="github.com/juanjo9551">github.com/juanjo9551</a>
+        </li>
+      </ul>
+      </div>
+      <form action="">
+        <input type="text" name="nombre" id="nombre" placeholder="Nombre" />
+        <input type="text" name="email" id="email" placeholder="Email" />
+        <textarea name="mensaje" id="mensaje" placeholder="Mensaje"></textarea>
+        <button type="submit">Enviar</button>
+      </form>
+    </section>
+
+    <!-- 🌟 Referencias -->
+    <section id="referencias">
+      <h2>Referencias</h2>
+      <blockquote>
+        <p>
+          "Juanjo tiene una gran capacidad para resolver problemas complejos con
+          soluciones simples y elegantes. Fue clave en el rediseño de nuestra
+          landing page."
+        </p>
+        <cite>— María López, Project Manager en TechWave</cite>
+      </blockquote>
+      <blockquote>
+        <p>
+          "Siempre está dispuesto a aprender algo nuevo y aportar ideas
+          creativas. Su código es limpio, bien estructurado y fácil de
+          mantener."
+        </p>
+        <cite>— Julián Torres, Senior Developer en CodeLab</cite>
+      </blockquote>
+      <blockquote>
+        <p>
+          "Trabajar con Juanjo fue una experiencia excelente, cumplió con los
+          plazos y superó las expectativas con un diseño moderno y funcional."
+        </p>
+        <cite>— Carolina Méndez, CEO de EcoStart</cite>
+      </blockquote>
+    </section>
+    <button id="volverInicio">&#8593</button>
+    <footer>
+      <p>&#169 Copyright Juan José Fernandez</p>
+    </footer>
+    <script src="script.js"></script>
+  </body>
+</html>

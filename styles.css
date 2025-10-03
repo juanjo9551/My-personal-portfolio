@@ -1,0 +1,397 @@
+/* Logo Styles */
+.logo {
+  font-weight: bold;
+  background: linear-gradient(90deg, #ff6a00, #ee0979);
+  color: white;
+  padding: 0 1em;
+  border-radius: 8px;
+  display: inline-block;
+  font-size: 1.3em;
+}
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+:root {
+  --nav-bar-height: 80px;
+}
+
+body {
+  line-height: 1.6;
+}
+
+/* 🔝 NAVBAR */
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 40px;
+  height: var(--nav-bar-height);
+  background: linear-gradient(
+    to bottom,
+    rgba(83, 83, 83, 0.5),
+    rgba(185, 185, 185, 0.5)
+  );
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  z-index: 10;
+}
+
+nav .logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  background: linear-gradient(45deg, #7bbffe, #00ffcc);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 25px;
+}
+
+nav a {
+  font-weight: 500;
+  text-decoration: none;
+  font-size: 1rem;
+  background: linear-gradient(45deg, #7bbffe, #00ffcc);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  position: relative;
+}
+
+nav a::after {
+  content: "";
+  position: absolute;
+  bottom: -1px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 2px;
+  background-color: #7bbffe;
+  transition: width 0.1s ease-in-out;
+}
+
+nav a:hover::after {
+  width: 100%;
+}
+
+#threebars {
+  display: none;
+  flex-direction: column;
+  gap: 2px;
+  z-index: 20;
+}
+#threebars div {
+  height: 2px;
+  width: 14px;
+  background-color: white;
+}
+
+#menu-toggle {
+  display: none;
+}
+
+/* 🖤🤍 SECCIONES alternadas */
+section {
+  min-height: 100vh;
+  padding: 100px 50px; /* espacio para no chocar con nav */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+/* 
+section:nth-child(odd) {
+  background: linear-gradient(120deg, #00334c 0%, #0080ff 40%, #7bbffe 100%);
+  color: #ffffff;
+}
+
+section:nth-child(even) {
+  background: linear-gradient(120deg, #ffa060 0%, #ff6600 30%, #783000 100%);
+  color: #ffffff;
+} */
+
+section {
+  color: black;
+}
+
+section#inicio {
+  background-image: url("assets/mohammad-rahmani-8qEB0fTe9Vw-unsplash.jpg");
+}
+section#sobre-mi {
+  background-image: url("assets/ales-nesetril-Im7lZjxeLhg-unsplash.jpg");
+}
+section#proyectos {
+  background-image: url("assets/james-harrison-vpOeXr5wmR4-unsplash.jpg");
+}
+section#contacto {
+  background-image: url("assets/michael-dziedzic-qDG7XKJLKbs-unsplash.jpg");
+}
+section#referencias {
+  background-image: url("assets/markus-spiske-Fa0pTKuoDVY-unsplash.jpg");
+}
+
+section {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: white;
+  position: relative;
+  z-index: 2;
+}
+
+section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 0;
+}
+
+section > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* Títulos */
+section h1,
+section h2 {
+  margin-bottom: 20px;
+  font-size: 2.2rem;
+}
+
+/* Listas y párrafos */
+section ul {
+  margin-left: 20px;
+  margin-top: 10px;
+}
+
+section p,
+section li,
+section blockquote {
+  max-width: 800px;
+  margin-bottom: 15px;
+}
+
+blockquote {
+  border-left: 4px solid #7bbffe;
+  padding-left: 15px;
+  font-style: italic;
+}
+#inicio {
+  flex-direction: row;
+  /* margin-top: var(--nav-bar-height); */
+  /* scroll-margin-top: var(--nav-bar-height); */
+}
+
+/* Imagenes */
+section img {
+  height: 300px;
+  width: 300px;
+  border-radius: 50%;
+  margin-top: 20px;
+  object-fit: cover;
+  aspect-ratio: 1 / 1;
+  object-position: center;
+}
+
+section#proyectos ul {
+  display: flex;
+  /* gap: -20px; */
+  flex-wrap: wrap;
+  list-style-type: none;
+  justify-content: center;
+}
+
+section#proyectos li {
+  perspective: 1000px;
+  margin-bottom: 40px;
+}
+
+section#proyectos ul div {
+  width: 275px;
+  min-height: 250px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-radius: 20px;
+  padding: 10px;
+  text-align: center;
+  cursor: pointer;
+  transform-style: preserve-3d;
+  transform: rotateY(30deg);
+  transition: all 0.5s ease;
+  position: relative;
+  border: 2px solid rgba(0, 0, 0, 0);
+  z-index: 20;
+}
+
+section#proyectos div:hover {
+  transform: rotateY(0) scale(1.03) translateZ(50px) translateX(-10px);
+  z-index: 50;
+  border: 2px solid white;
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.6);
+  isolation: isolate;
+}
+
+section#proyectos li:not(:hover) div {
+  opacity: 0.8;
+}
+section#proyectos li strong,
+section#proyectos li i {
+  font-family: monospace;
+  font-weight: bolder;
+  font-size: 2.25em;
+}
+
+section#proyectos li:nth-child(1) strong {
+  color: rgb(255, 82, 206);
+}
+section#proyectos li:nth-child(2) strong {
+  color: rgb(114, 255, 82);
+}
+section#proyectos li:nth-child(3) strong {
+  color: #57fcff;
+}
+section#proyectos li:nth-child(4) strong {
+  color: rgb(255, 235, 82);
+}
+
+section#contacto {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 50px;
+}
+
+section#contacto form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-top: 20px;
+  background-color: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(5px);
+  padding: 20px;
+  border-radius: 10px;
+}
+
+section#contacto form input,
+section#contacto form textarea,
+section#contacto form button {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 1rem;
+  padding: 10px;
+  border: none;
+  border-radius: 8px;
+  width: 300px;
+  background-color: rgb(0, 0, 0);
+  color: white;
+}
+
+section#contacto form button {
+  cursor: pointer;
+  color: white;
+}
+
+section#contacto .links-container a {
+  color: white;
+  text-decoration: none;
+}
+
+section#contacto .links-container ul li {
+  height: 50px;
+  padding: 20px;
+  min-width: 500px;
+  border-radius: 25px;
+  display: flex;
+  align-items: center;
+  backdrop-filter: blur(5px);
+  background-color: rgba(0, 0, 0, 0.314);
+}
+
+section#contacto .links p {
+  margin-bottom: 0;
+  margin-right: 10px;
+}
+
+footer {
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  color: white;
+  text-align: center;
+  padding: 20px 50px;
+  position: fixed;
+  bottom: 0;
+  width: 100vw;
+  z-index: 20;
+}
+
+button#volverInicio {
+  position: fixed;
+  width: 60px;
+  height: 60px;
+  font-size: 35px;
+  font-weight: bold;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.263);
+  backdrop-filter: blur(5px);
+  color: white;
+  border: none;
+  cursor: pointer;
+  bottom: 50px;
+  right: 50px;
+  z-index: 50;
+}
+
+@media (max-width: 768px) {
+  section#inicio {
+    flex-direction: column;
+  }
+  #threebars {
+    display: flex;
+  }
+
+  #threebars div {
+    transition: all 0.3s ease-in-out;
+  }
+
+  #menu-toggle:checked ~ #threebars div:nth-child(1) {
+    transform: rotate(45deg);
+    position: absolute;
+  }
+  #menu-toggle:checked ~ #threebars div:nth-child(3) {
+    transform: rotate(-45deg);
+    position: absolute;
+  }
+  #menu-toggle:checked ~ #threebars div:nth-child(2) {
+    display: none;
+  }
+
+  #nav-links {
+    position: absolute;
+    flex-direction: column;
+    background: linear-gradient(to top, rgb(14, 28, 87), rgb(34, 52, 120));
+    top: -300px;
+    left: 0;
+    padding: 20px 20px;
+    text-align: center;
+    width: 100vw;
+    transition: all 0.3s ease-in-out;
+  }
+
+  #menu-toggle:checked ~ #nav-links {
+    top: 0;
+    transition: all 0.3s ease-in-out;
+  }
+}
