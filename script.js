@@ -50,9 +50,64 @@ botonVolverInicio.addEventListener("click", () => {
   window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
 });
 
+// Modo oscuro
 const themeToggle = document.getElementById("theme-toggle");
 const body = document.body;
 
 themeToggle.addEventListener("change", function () {
   body.classList.toggle("dark-theme", this.checked);
 });
+
+// Validación del formulario
+document
+  .getElementById("miFormulario")
+  .addEventListener("submit", function (e) {
+    e.preventDefault(); // Evita recargar o salir de la sección
+
+    const nombre = document.getElementById("nombre").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const mensaje = document.getElementById("mensaje").value.trim();
+    const mensajeResultado = document.getElementById("mensaje-resultado");
+
+    if (!nombre || !email || !mensaje) {
+      mensajeResultado.textContent = "⚠️ Por favor, completa todos los campos.";
+      mensajeResultado.style.color = "red";
+      return;
+    }
+
+    const emailValido = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailValido.test(email)) {
+      mensajeResultado.textContent = "⚠️ Ingresa un correo electrónico válido.";
+      mensajeResultado.style.color = "red";
+      return;
+    }
+
+    // Si todo está correcto
+    mensajeResultado.textContent =
+      "✅ Mensaje enviado correctamente. ¡Gracias!";
+    mensajeResultado.style.color = "green";
+
+    // Mantener al usuario en la sección #contacto
+    location.hash = "contacto";
+
+    // Opcional: limpiar formulario
+    this.reset();
+  });
+
+// Animaciones de referencias
+
+document.querySelectorAll("#referencias blockquote").forEach((el) => {
+  el.addEventListener("click", () => {
+    el.classList.toggle("expanded");
+  });
+});
+
+//mostrar fecha actual en pie de pagina
+const fechaActual = new Date();
+const anioActual =
+  fechaActual.getDate() +
+  "/" +
+  (fechaActual.getMonth() + 1) +
+  "/" +
+  fechaActual.getFullYear();
+document.getElementById("fechaActual").textContent = anioActual;

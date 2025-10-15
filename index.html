@@ -10,7 +10,7 @@
   <body>
     <header>
       <nav>
-        <logo class="logo">MyPortfolio</logo>
+        <logo class="logo">Juan José Fernandez - Lic. Ciencias de la Computación </logo>
         <input type="checkbox" name="theme-toggle" id="theme-toggle">
         <label for="theme-toggle" id="theme-toggle-label"></label>
         <input type="checkbox" id="menu-toggle">
@@ -80,7 +80,7 @@
       <ul>
         <li>
           <div class="li-container">
-          <strong>Registro de empleados</strong><p><i>🎨</i></p><p>Aplicación web para gestionar las entradas y salidas de trabajadores de sus establecmientos. Desarrollada con Python, Flask. </p>
+          <strong>Registro de empleados</strong><p><i>🎨</i></p><p>Aplicación web para gestionar las entradas y salidas de trabajadores de sus establecimientos. Desarrollada con Python, Flask. </p>
           
           <img src="assets/proyectoPOO1.png" alt="">
           
@@ -90,18 +90,22 @@
           <div class="li-container">
           <strong>Graficador mandelbrot</strong> <p><i>♻️</i></p><p>App de generación y visualización de fractales de Mandelbrot. Desarrollada con Python, PIL.
           </p>
+          <img src="assets/mandelbrot.png" alt="">
           </div>
         </li>
         <li>
           <div class="li-container">
           <strong>Nutrition App</strong><p><i>✅</i></p> <p>App que consume una API de nutrición y muestra datos de alimentos. Desarrollada con React y Express.
             </p>
+          <img src="assets/nutrition_app_image.png" alt="">
           </div>
+          
         </li>
         <li>
           <div class="li-container">
           <strong>WeatherNow </strong><p><i>🌦️</i></p><p>App que consume una API de clima y
           muestra animaciones SVG en tiempo real.</p>
+          <img src="assets/weather_app.png" alt="">
         </div>
       </li>
       </ul>
@@ -131,12 +135,14 @@
         </li>
       </ul>
       </div>
-      <form action="">
-        <input type="text" name="nombre" id="nombre" placeholder="Nombre" />
-        <input type="text" name="email" id="email" placeholder="Email" />
-        <textarea name="mensaje" id="mensaje" placeholder="Mensaje"></textarea>
-        <button type="submit">Enviar</button>
-      </form>
+      <form id="miFormulario" action="">
+    <input type="text" name="nombre" id="nombre" placeholder="Nombre" />
+    <input type="text" name="email" id="email" placeholder="Email" />
+    <textarea name="mensaje" id="mensaje" placeholder="Mensaje"></textarea>
+    <button type="submit">Enviar</button>
+    <p id="mensaje-resultado"></p>
+  </form>
+  
       </div>
     </section>
 
@@ -146,34 +152,47 @@
       <h2>Referencias</h2>
       <div class="blockquotes-container">
       <blockquote>
-        <p>
+        
+        <cite>— Meneses Rodrigo, Project Manager en Employees App</cite>
+        <p class="opinion">
           "Juanjo tiene una gran capacidad para resolver problemas complejos con
           soluciones simples y elegantes. Fue clave en el rediseño de nuestra
           landing page."
         </p>
-        <cite>— María López, Project Manager en TechWave</cite>
+        <p><svg width="30px" height="30px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M7 10L12 15L17 10" stroke="#000000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+</svg></p>
       </blockquote>
       <blockquote>
-        <p>
+        
+        <cite>— Agudo Fernando, Senior Developer en Mercado Libre</cite>
+        <p class="opinion">
           "Siempre está dispuesto a aprender algo nuevo y aportar ideas
           creativas. Su código es limpio, bien estructurado y fácil de
           mantener."
         </p>
-        <cite>— Julián Torres, Senior Developer en CodeLab</cite>
+        <p><svg width="30px" height="30px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M7 10L12 15L17 10" stroke="#000000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+</svg></p>
       </blockquote>
       <blockquote>
-        <p>
+        
+        <cite>— Cortez Agustín, Desarrollador Full Stack en Avantti</cite>
+        <p class="opinion">
           "Trabajar con Juanjo fue una experiencia excelente, cumplió con los
           plazos y superó las expectativas con un diseño moderno y funcional."
         </p>
-        <cite>— Carolina Méndez, CEO de EcoStart</cite>
+        <p><svg width="30px" height="30px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M7 10L12 15L17 10" stroke="#000000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+</svg></p>
       </blockquote>
       </div>
       </div>
     </section>
     <button id="volverInicio">&#8593</button>
     <footer>
-      <p>&#169 Copyright Juan José Fernandez</p>
+      <p>&#169 Copyright Juan José Fernandez <span id="fechaActual"></span></p>
+      
     </footer>
     <script src="script.js"></script>
   </body>

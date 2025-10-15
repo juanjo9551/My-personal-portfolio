@@ -1,13 +1,3 @@
-.logo {
-  font-weight: bold;
-  background: linear-gradient(90deg, #ff6a00, #ee0979);
-  color: white;
-  padding: 0 1em;
-  border-radius: 8px;
-  display: inline-block;
-  font-size: 1.3em;
-}
-
 * {
   margin: 0;
   padding: 0;
@@ -17,6 +7,9 @@
 
 :root {
   --nav-bar-height: 80px;
+  --theme-toggle-width: 70px;
+  --theme-toggle-height: 40px;
+  --knob-size: 36px;
 }
 
 body {
@@ -28,11 +21,13 @@ nav {
   top: 0;
   left: 0;
   width: 100%;
+  max-width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 0 40px;
-  height: var(--nav-bar-height);
+  /* MODIFICACION ALTURA NAV */
+  min-height: var(--nav-bar-height);
   background: linear-gradient(
     to bottom,
     rgba(83, 83, 83, 0.5),
@@ -44,7 +39,7 @@ nav {
 }
 
 nav .logo {
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   font-weight: bold;
   background: linear-gradient(45deg, #7bbffe, #00ffcc);
   -webkit-background-clip: text;
@@ -52,16 +47,17 @@ nav .logo {
 }
 
 nav label#theme-toggle-label {
-  width: 50px;
-  height: 20px;
+  min-width: var(--theme-toggle-width);
+  height: var(--theme-toggle-height);
   position: relative;
   display: block;
-  background-color: #ebebeb;
-  border-radius: 20px;
+  background-color: #535353;
+  border-radius: var(--theme-toggle-height);
   box-shadow: inset 0 3x 9px rgba(0, 0, 0, 0.596),
     inset 0 -3px 9px rgba(255, 255, 255, 0.295);
   cursor: pointer;
   transition: all 0.3s ease;
+  margin-right: 20px;
 }
 
 nav label#theme-toggle-label::after {
@@ -69,29 +65,35 @@ nav label#theme-toggle-label::after {
   position: absolute;
   top: 2px;
   left: 2px;
-  width: 16px;
-  height: 16px;
-  background-color: white;
+  width: var(--knob-size);
+  height: var(--knob-size);
   border-radius: 50%;
+  background-color: white;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: calc(var(--knob-size)-4px);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23FFD700' viewBox='0 0 24 24'%3E%3Ccircle cx='12' cy='12' r='5'/%3E%3Cpath d='M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42' stroke='%23FFD700' stroke-width='2'/%3E%3C/svg%3E");
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
   transition: all 0.3s ease;
 }
 
 nav input#theme-toggle:checked + label#theme-toggle-label::after {
-  transform: translateX(30px);
+  /* transform: translateX(30px); */
+  left: calc(var(--theme-toggle-width) - var(--knob-size) - 2px);
+  background-color: #535353;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23FFFFFF' viewBox='0 0 24 24'%3E%3Cpath d='M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z'/%3E%3C/svg%3E");
 }
 nav input#theme-toggle:checked + label#theme-toggle-label {
-  background-color: #4d4d4d;
-}
-
-nav input#theme-toggle:checked + section {
-  color: black;
+  background-color: #c2c2c2;
 }
 
 nav input#theme-toggle {
   display: none;
 }
 
+nav input#theme-toggle:checked + section {
+  color: black;
+}
 nav ul {
   list-style: none;
   display: flex;
@@ -143,12 +145,19 @@ nav a:hover::after {
 
 /* 🖤🤍 SECCIONES alternadas */
 section {
+  min-width: 100vw;
   min-height: 100vh;
-  padding: 100px 50px; /* espacio para no chocar con nav */
+  /* espacio para no chocar con nav */
+  padding: auto 20px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  background-size: cover;
+  background-position: center;
+  background-repeat: repeat;
+  position: relative;
+  z-index: 2;
 }
 
 section#inicio {
@@ -164,16 +173,10 @@ section#contacto {
   background-image: url("assets/michael-dziedzic-qDG7XKJLKbs-unsplash.jpg");
 }
 section#referencias {
-  background-image: url("assets/markus-spiske-Fa0pTKuoDVY-unsplash.jpg");
+  background-image: url("assets/python-app-framework-1.webp");
 }
 
 section {
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  color: white;
-  position: relative;
-  z-index: 2;
 }
 
 /* Sombra encima de las imagenes */
@@ -183,6 +186,7 @@ section::before {
   inset: 0;
   background: rgba(0, 0, 0, 0.5);
   z-index: 0;
+  min-width: 100vw;
 
   transition: all 0.3s ease;
 }
@@ -325,6 +329,7 @@ section#proyectos ul li img {
   border-radius: 15px;
   margin-top: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  object-fit: cover;
 }
 
 /* Seccion contacto */
@@ -373,6 +378,7 @@ section#contacto .links-container a {
   width: 100%;
   height: 100%;
   padding: 20px;
+  transition: all 0.3s ease;
 }
 
 section#contacto .links-container ul li {
@@ -383,6 +389,10 @@ section#contacto .links-container ul li {
   align-items: center;
   backdrop-filter: blur(5px);
   background-color: rgba(0, 0, 0, 0.314);
+  overflow: hidden;
+}
+section#contacto .links-container li:hover a {
+  background-color: rgba(182, 189, 255, 0.719);
 }
 
 section#contacto .links p {
@@ -401,7 +411,42 @@ section#referencias .blockquotes-container {
   flex-direction: column;
   gap: 30px;
   margin-top: 20px;
-  backdrop-filter: blur(5px);
+}
+section#referencias .blockquotes-container blockquote {
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  padding: 10px;
+  border-radius: 10px;
+}
+section#referencias .blockquotes-container blockquote > p.opinion {
+  /* display: none; */
+  max-height: 0;
+  margin-top: 10px;
+  opacity: 0;
+  transition: all 0.5s ease;
+}
+section#referencias .blockquotes-container blockquote.expanded > p.opinion {
+  /* display: block; */
+  max-height: 600px;
+  opacity: 1;
+}
+section#referencias .blockquotes-container blockquote svg {
+  position: relative;
+  transition: transform 0.3s ease;
+}
+
+section#referencias .blockquotes-container blockquote.expanded svg {
+  transform: rotate(180deg);
+}
+section#referencias .blockquotes-container blockquote:hover {
+  background-color: rgba(255, 255, 255, 0.61);
+}
+
+section#referencias .blockquotes-container blockquote cite {
+  font-size: 1.1rem;
+  font-weight: bold;
+  transition: all 0.3s ease;
 }
 
 footer {
@@ -437,6 +482,9 @@ button#volverInicio {
 @media (max-width: 768px) {
   section#inicio {
     flex-direction: column;
+  }
+  section {
+    font-size: 0.9rem;
   }
   #threebars {
     display: flex;
@@ -474,17 +522,51 @@ button#volverInicio {
     top: 0;
     transition: all 0.3s ease-in-out;
   }
+  section#proyectos ul .li-container {
+    transform: rotateY(0deg);
+  }
+  section#proyectos .li-container:hover {
+    transform: scale(1.03) translateZ(50px) translateX(0);
+  }
+
+  /* light theme media */
+  body:not(.dark-theme) #nav-links {
+    background: linear-gradient(
+      to bottom,
+      rgba(255, 255, 255, 0.9),
+      rgba(255, 255, 255, 0.9)
+    );
+  }
+  body:not(.dark-theme) #threebars div {
+    background-color: black;
+  }
 }
 /* dark theme */
+
 body.dark-theme section,
 body.dark-theme li,
 body.dark-theme p,
 body.dark-theme ul a,
-body.dark-theme button {
+body.dark-theme button,
+body.dark-theme section#referencias p svg {
   color: white;
 }
+
 body.dark-theme section::before {
   background: rgba(0, 0, 0, 0.3);
+}
+body.dark-theme section#inicio .contenido-inicio {
+  background: linear-gradient(
+    45deg,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(0, 0, 0, 0.7) 12.5%,
+    rgba(28, 28, 28, 0.623) 25%,
+    rgba(0, 0, 0, 0.7) 37.5%,
+    rgba(0, 0, 0, 0) 87.5%,
+    rgba(0, 0, 0, 0) 100%
+  );
+  border-radius: 10px;
+  backdrop-filter: blur(5px);
 }
 
 body.dark-theme section#proyectos li strong {
@@ -505,6 +587,16 @@ body.dark-theme section#contacto form textarea:-webkit-autofill {
   -webkit-box-shadow: 0 0 0px 1000px rgb(0, 0, 0) inset;
   -webkit-text-fill-color: white;
 }
+body.dark-theme section#referencias .contenido-referencias {
+  backdrop-filter: blur(5px);
+}
+
+body.dark-theme section#referencias .blockquotes-container blockquote:hover {
+  background-color: rgba(0, 0, 0, 0.514);
+}
+body.dark-theme svg {
+  stroke: #ffffff;
+}
 
 /* light theme */
 body:not(.dark-theme) section,
@@ -513,15 +605,22 @@ body:not(.dark-theme) p,
 body:not(.dark-theme) ul a {
   color: black;
 }
+/* body:not(.dark-theme) nav label#theme-toggle-label {
+  background-color: #ebebeb;
+} */
 
 body:not(.dark-theme) section::before {
   background: rgba(255, 255, 255, 0.1);
 }
 body:not(.dark-theme) section#inicio .contenido-inicio {
   background: linear-gradient(
-    30deg,
-    rgba(255, 255, 255, 0.5) 0%,
-    rgba(255, 255, 255, 1) 100%
+    45deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgb(255, 255, 255) 12.5%,
+    rgba(228, 237, 255, 0.623) 25%,
+    rgb(255, 255, 255) 37.5%,
+    rgba(255, 255, 255, 1) 87.5%,
+    rgba(255, 255, 255, 0) 100%
   );
   border-radius: 10px;
 }
@@ -573,16 +672,20 @@ body:not(.dark-theme) section#contacto form button {
 }
 
 body:not(.dark-theme) section#referencias .contenido-referencias {
-  background-color: rgba(255, 255, 255, 0.7);
+  background: linear-gradient(
+    to right,
+
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.7) 10%,
+    rgba(255, 255, 255, 0.7) 90%,
+    rgba(255, 255, 255, 0) 100%
+  );
   color: black;
+  backdrop-filter: blur(5px);
 }
 
 body:not(.dark-theme) nav {
-  background: linear-gradient(
-    to bottom,
-    rgba(255, 255, 255, 0.507),
-    rgba(255, 255, 255, 0.781)
-  );
+  background: linear-gradient(45deg, #6bb8ffe8, #70ffe2cb);
 }
 body:not(.dark-theme) nav .logo {
   -webkit-text-fill-color: black;
@@ -593,11 +696,15 @@ body:not(.dark-theme) nav a {
 body:not(.dark-theme) nav a::after {
   background-color: black;
 }
-body:not(.dark-theme) footer {
-  background: linear-gradient(
+body:not(.dark-theme) svg {
+  stroke: #000000;
+}
+
+body:not(.dark-theme) footer p {
+  /* background: linear-gradient(
     to bottom,
     rgba(255, 255, 255, 0.507),
     rgba(255, 255, 255, 0.781)
-  );
-  color: black;
+  ); */
+  color: rgb(255, 255, 255);
 }
