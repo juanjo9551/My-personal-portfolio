@@ -11,6 +11,8 @@
     <header>
       <nav>
         <logo class="logo">MyPortfolio</logo>
+        <input type="checkbox" name="theme-toggle" id="theme-toggle">
+        <label for="theme-toggle" id="theme-toggle-label"></label>
         <input type="checkbox" id="menu-toggle">
         <ul id="nav-links">
           <li><a href="#inicio">Inicio</a></li>
@@ -31,23 +33,26 @@
     <!-- 🏠 Inicio -->
     <section id="inicio">
       <div class="contenido-inicio">
-        <h1>¡Hola! Soy Juan José Fernandez</h1>
+        <h1>Juan José Fernandez</h1>
+        <h2>Licenciado en Ciencias de la Computación</h2>
         <p>
           Estudiante de Ciencias de la Computación apasionado por crear
-          experiencias digitales únicas y funcionales, apasionado de las
+          experiencias digitales únicas y funcionales, apasionado por las
           matemáticas aplicadas a la computación y la aplicación de la
-          tecnología en el mundo para la solución de problemas
+          tecnología en el mundo para la solución de problemas.
         </p>
         <p>
           Este es mi espacio personal donde comparto quién soy, qué me apasiona y
           algunos de mis proyectos favoritos.
         </p>
-      </div>
-      <img src="fotopersonal.jpg" alt="Foto personal" />
+        </div>
+      
+      
     </section>
 
     <!-- 👨‍💻 Sobre mí -->
     <section id="sobre-mi">
+      <div class="contenido-sobre-mi">
       <h2>Sobre mí</h2>
       <p>
         Soy un estudiante de 2do año de
@@ -65,6 +70,8 @@
         Fuera del código, me apasiona el arte digital y la fotografía, lo que
         aporta un toque creativo a mi trabajo como desarrollador.
       </p>
+      </div>
+      <img src="fotopersonal.jpg" alt="Foto personal" />
     </section>
 
     <!-- 📂 Proyectos -->
@@ -72,55 +79,55 @@
       <h2>Proyectos</h2>
       <ul>
         <li>
-          <div>
-          <strong>PixelArt Studio </strong><p><i>🎨</i></p><p>Aplicación web para crear
-          dibujos pixelados y exportarlos como PNG. Desarrollada con JavaScript
-          y Canvas.</p>
+          <div class="li-container">
+          <strong>Registro de empleados</strong><p><i>🎨</i></p><p>Aplicación web para gestionar las entradas y salidas de trabajadores de sus establecmientos. Desarrollada con Python, Flask. </p>
+          
+          <img src="assets/proyectoPOO1.png" alt="">
+          
           </div>
         </li>
         <li>
-          <div>
-          <strong>EcoShop </strong> <p><i>♻️</i></p><p>Prototipo de e-commerce con carrito
-          dinámico en JavaScript y diseño responsive con CSS Grid y Flexbox.
+          <div class="li-container">
+          <strong>Graficador mandelbrot</strong> <p><i>♻️</i></p><p>App de generación y visualización de fractales de Mandelbrot. Desarrollada con Python, PIL.
           </p>
           </div>
         </li>
         <li>
-          <div>
-          <strong>Taskify </strong><p><i>✅</i></p> <p>Gestor de tareas minimalista con
-          almacenamiento en LocalStorage.
+          <div class="li-container">
+          <strong>Nutrition App</strong><p><i>✅</i></p> <p>App que consume una API de nutrición y muestra datos de alimentos. Desarrollada con React y Express.
             </p>
           </div>
         </li>
         <li>
-          <div>
+          <div class="li-container">
           <strong>WeatherNow </strong><p><i>🌦️</i></p><p>App que consume una API de clima y
           muestra animaciones SVG en tiempo real.</p>
         </div>
       </li>
       </ul>
+      
     </section>
 
     <!-- 📞 Contacto -->
     <section id="contacto">
+      <div class="contenido-contacto">
       <div class="links-container">
       <h2>Contacto</h2>
       <p>¿Quieres colaborar en un proyecto o simplemente saludar?</p>
-      <ul class="links">
-        <li>
-          <p>✉️ Email:  </p> 
+      <ul class="links hidden2">
+        <li class="email">
           <a href="mailto:juanjo22fernandez@gmail.com"
-            >juanjo22fernandez@gmail.com</a
+            >✉️ Email: juanjo22fernandez@gmail.com</a
           >
         </li>
-        <li>
-          <p>💼 LinkedIn:  </p> 
+        <li class="linkedin">
+          
           <a href="https://linkedin.com/in/juan-fernandez-343208247"
-            >linkedin.com/in/juan-fernandez-343208247</a
+            >💼 LinkedIn:  linkedin.com/in/juan-fernandez-343208247</a
           >
         </li>
-        <li>
-          <p>🐙 GitHub:    </p><a href="github.com/juanjo9551">github.com/juanjo9551</a>
+        <li class="github">
+          <a href="github.com/juanjo9551">🐙 GitHub: github.com/juanjo9551</a>
         </li>
       </ul>
       </div>
@@ -130,10 +137,12 @@
         <textarea name="mensaje" id="mensaje" placeholder="Mensaje"></textarea>
         <button type="submit">Enviar</button>
       </form>
+      </div>
     </section>
 
     <!-- 🌟 Referencias -->
     <section id="referencias">
+      <div class="contenido-referencias">
       <h2>Referencias</h2>
       <div class="blockquotes-container">
       <blockquote>
@@ -159,6 +168,7 @@
         </p>
         <cite>— Carolina Méndez, CEO de EcoStart</cite>
       </blockquote>
+      </div>
       </div>
     </section>
     <button id="volverInicio">&#8593</button>
