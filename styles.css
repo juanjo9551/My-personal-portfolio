@@ -116,7 +116,7 @@ nav a::after {
   width: 0;
   height: 2px;
   background-color: #7bbffe;
-  transition: width 0.3s ease-in-out;
+  transition: width 0.3s ease;
 }
 
 nav a:hover::after {
@@ -435,6 +435,10 @@ section#referencias .blockquotes-container blockquote {
   position: relative;
   padding: 10px;
   border-radius: 10px;
+  margin: 0 auto;
+}
+section#referencias .blockquotes-container p {
+  margin: 0;
 }
 section#referencias .blockquotes-container blockquote > p.opinion {
   /* display: none; */
@@ -666,9 +670,13 @@ body:not(.dark-theme) section#inicio .contenido-inicio {
     45deg,
     rgba(255, 255, 255, 0) 0%,
     rgb(255, 255, 255) 12.5%,
-    rgba(228, 237, 255, 0.623) 25%,
-    rgb(255, 255, 255) 37.5%,
     rgba(255, 255, 255, 1) 87.5%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  background: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 1) 0%,
+    rgba(255, 255, 255, 1) 80%,
     rgba(255, 255, 255, 0) 100%
   );
   border-radius: 10px;
@@ -737,7 +745,7 @@ body:not(.dark-theme) section#referencias .contenido-referencias {
 }
 
 body:not(.dark-theme) nav {
-  background: linear-gradient(45deg, #6bb8ffe8, #70ffe2cb);
+  background: linear-gradient(to bottom, #6bb8ffe8, #70ffe2cb);
 }
 body:not(.dark-theme) nav .logo {
   -webkit-text-fill-color: black;
