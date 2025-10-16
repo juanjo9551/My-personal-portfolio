@@ -121,6 +121,7 @@ document.getElementById("fechaActual").textContent = anioActual;
 //weather api key
 const weather_div = document.getElementById("weather");
 
+// Funcion para obtener los datos del clima
 function fetchWeather(latitude, longitude) {
   const apiKey = "e9a79f2647de0670e15c08260d446c90";
   const url = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=metric`;
@@ -128,26 +129,59 @@ function fetchWeather(latitude, longitude) {
     .then((response) => response.json())
     .then((data) => {
       console.log(data);
-      const weatherDescription = data.weather[0].description;
+      const weatherDescription = data.weather[0].description.replace(
+        /^./,
+        (c) => c.toUpperCase()
+      );
       const temperature = data.main.temp;
       const location = data.name;
+      const wind = data.wind.speed;
+      const humidity = data.main.humidity;
+      const cardinalDirections = [
+        "Norte",
+        "Noreste",
+        "Este",
+        "Sureste",
+        "Sur",
+        "Sudeste",
+        "Oeste",
+        "Noroeste",
+      ];
+
+      // Convertir grados a dirección cardinal
+      const windDirIndex = Math.round(data.wind.deg / 45) % 8;
+      const windDirection = cardinalDirections[windDirIndex];
+      const rain = data.rain ? data.rain["1h"] : 0;
+      // Mostrar los datos en el div del clima
+      const iconCode = data.weather[0].icon;
+      const iconUrl = `https://openweathermap.org/img/wn/${iconCode}@2x.png`;
       weather_div.innerHTML = `
-        <p>Clima en ${location}: ${weatherDescription}, ${temperature}°C</p>
+      <h3><strong>Clima en ${location}:</strong></h3>
+      ${weatherDescription} <img width="30px" style="position:relative; top:8px;" src="${iconUrl}" alt="${weatherDescription} icon"><br>
+      Temperatura: ${temperature}°C<br>
+      Viento: ${wind} m/s ${windDirection}<br>
+      Humedad: ${humidity}%<br>
+      Lluvia (última hora): ${rain} mm
       `;
     })
     .catch((error) => console.error("Error fetching weather data:", error));
 }
 
+// Función para obtener la ubicación del usuario
 function getUserLocation() {
+  // Verificar si la Geolocalización es soportada
   if (navigator.geolocation) {
+    // Obtener la ubicación actual
     navigator.geolocation.getCurrentPosition(
       (position) => {
         const latitude = position.coords.latitude;
         const longitude = position.coords.longitude;
         console.log(`Latitude: ${latitude}, Longitude: ${longitude}`);
+        // Llamar a la función para obtener el clima
         fetchWeather(latitude, longitude);
       },
       (error) => {
+        // Manejar errores
         switch (error.code) {
           case error.PERMISSION_DENIED:
             console.error("El usuario negó la solicitud de Geolocalización.");
@@ -171,10 +205,11 @@ function getUserLocation() {
   }
 }
 
+// Agregar evento click al div del clima
 weather_div.addEventListener("click", () => {
   if (weather_div.innerHTML !== "Conocer clima en mi ciudad") return;
   getUserLocation();
 });
 
-// Call the function to get the user's location
+// Llamar a la función para obtener la ubicación del usuario al cargar la página
 getUserLocation();
