@@ -32,6 +32,7 @@
     </header>
     <!-- 🏠 Inicio -->
     <section id="inicio">
+      <div id="weather">Conocer clima en mi ciudad</div>
       <div class="contenido-inicio">
         <h1>Juan José Fernandez</h1>
         <h2>Licenciado en Ciencias de la Computación</h2>
@@ -77,13 +78,13 @@
     <!-- 📂 Proyectos -->
     <section id="proyectos">
       <h2>Proyectos</h2>
-      <ul>
+      <ul id="lista-proyectos">
         <li>
           <div class="li-container">
           <strong>Registro de empleados</strong><p><i>🎨</i></p><p>Aplicación web para gestionar las entradas y salidas de trabajadores de sus establecimientos. Desarrollada con Python, Flask. </p>
           
           <img src="assets/proyectoPOO1.png" alt="">
-          
+          <a href="#">¡Quiero saber más!</a>
           </div>
         </li>
         <li>
@@ -91,6 +92,7 @@
           <strong>Graficador mandelbrot</strong> <p><i>♻️</i></p><p>App de generación y visualización de fractales de Mandelbrot. Desarrollada con Python, PIL.
           </p>
           <img src="assets/mandelbrot.png" alt="">
+          <a href="#">¡Quiero saber más!</a>
           </div>
         </li>
         <li>
@@ -98,6 +100,7 @@
           <strong>Nutrition App</strong><p><i>✅</i></p> <p>App que consume una API de nutrición y muestra datos de alimentos. Desarrollada con React y Express.
             </p>
           <img src="assets/nutrition_app_image.png" alt="">
+          <a href="#">¡Quiero saber más!</a>
           </div>
           
         </li>
@@ -106,6 +109,7 @@
           <strong>WeatherNow </strong><p><i>🌦️</i></p><p>App que consume una API de clima y
           muestra animaciones SVG en tiempo real.</p>
           <img src="assets/weather_app.png" alt="">
+          <a href="#">¡Quiero saber más!</a>
         </div>
       </li>
       </ul>
@@ -136,12 +140,12 @@
       </ul>
       </div>
       <form id="miFormulario" action="">
-    <input type="text" name="nombre" id="nombre" placeholder="Nombre" />
-    <input type="text" name="email" id="email" placeholder="Email" />
-    <textarea name="mensaje" id="mensaje" placeholder="Mensaje"></textarea>
-    <button type="submit">Enviar</button>
-    <p id="mensaje-resultado"></p>
-  </form>
+        <input type="text" name="nombre" id="nombre" placeholder="Nombre" />
+        <input type="text" name="email" id="email" placeholder="Email" />
+        <textarea name="mensaje" id="mensaje" placeholder="Mensaje"></textarea>
+        <button type="submit">Enviar</button>
+        <p id="mensaje-resultado"></p>
+      </form>
   
       </div>
     </section>
@@ -190,6 +194,7 @@
       </div>
     </section>
     <button id="volverInicio">&#8593</button>
+    
     <footer>
       <p>&#169 Copyright Juan José Fernandez <span id="fechaActual"></span></p>
       
