@@ -118,7 +118,7 @@ const anioActual =
   fechaActual.getFullYear();
 document.getElementById("fechaActual").textContent = anioActual;
 
-//weather api key: e9a79f2647de0670e15c08260d446c90
+//weather api key
 const weather_div = document.getElementById("weather");
 
 function fetchWeather(latitude, longitude) {
