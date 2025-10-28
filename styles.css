@@ -506,9 +506,14 @@ button#volverInicio {
   section#inicio {
     flex-direction: column;
   }
+  section#inicio .contenido-inicio {
+    padding-top: 120px;
+  }
   section {
     font-size: 0.9rem;
+    padding: 20px;
   }
+
   #threebars {
     display: flex;
   }

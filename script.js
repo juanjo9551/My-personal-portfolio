@@ -110,21 +110,31 @@ document.querySelectorAll("#referencias blockquote").forEach((el) => {
 
 //mostrar fecha actual en pie de pagina
 const fechaActual = new Date();
+
+hora = fechaActual.getHours() + ":" + fechaActual.getMinutes() + " hs";
 const anioActual =
   fechaActual.getDate() +
   "/" +
   (fechaActual.getMonth() + 1) +
   "/" +
-  fechaActual.getFullYear();
+  fechaActual.getFullYear() +
+  ". " +
+  hora;
 document.getElementById("fechaActual").textContent = anioActual;
 
 //weather api key
-const weather_div = document.getElementById("weather");
+const weather_div = document.getElementById("weather-content");
 
 // Funcion para obtener los datos del clima
-function fetchWeather(latitude, longitude) {
+function fetchWeather(latitude, longitude, city = "", country = "") {
   const apiKey = "e9a79f2647de0670e15c08260d446c90";
-  const url = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=metric`;
+  let url = "";
+  if (city) {
+    url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric&lang=es`;
+  } else {
+    url = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=metric&lang=es`;
+  }
+
   fetch(url)
     .then((response) => response.json())
     .then((data) => {
@@ -156,7 +166,9 @@ function fetchWeather(latitude, longitude) {
       const iconCode = data.weather[0].icon;
       const iconUrl = `https://openweathermap.org/img/wn/${iconCode}@2x.png`;
       weather_div.innerHTML = `
-      <h3><strong>Clima en ${location}:</strong></h3>
+      <h3><strong>Clima en ${location}, ${
+        country || data.sys.country
+      }:</strong></h3>
       ${weatherDescription} <img width="30px" style="position:relative; top:8px;" src="${iconUrl}" alt="${weatherDescription} icon"><br>
       Temperatura: ${temperature}°C<br>
       Viento: ${wind} m/s ${windDirection}<br>
@@ -204,12 +216,41 @@ function getUserLocation() {
     console.error("La Geolocalización no es soportada por este navegador.");
   }
 }
+function getIPGeolocation() {
+  fetch("https://ipapi.co/json/") // Example using ipapi.co (many other services exist)
+    .then((response) => response.json())
+    .then((data) => {
+      const city = data.city;
+      const country = data.country_name;
+      console.log(`City: ${city}, Country: ${country}`);
+      fetchWeather(null, null, city, country);
+    })
+    .catch((error) => {
+      console.error(`Error getting IP geolocation: ${error.message}`);
+    });
+}
 
 // Agregar evento click al div del clima
 weather_div.addEventListener("click", () => {
-  if (weather_div.innerHTML !== "Conocer clima en mi ciudad") return;
-  getUserLocation();
+  if (weather_div.innerHTML !== "Conocer clima en mi ciudad") {
+    return;
+  } else {
+    // getUserLocation();
+    getIPGeolocation();
+  }
 });
 
 // Llamar a la función para obtener la ubicación del usuario al cargar la página
-getUserLocation();
+
+// getUserLocation();
+getIPGeolocation();
+
+// Agregar funcionalidad al botón de búsqueda de ciudad
+document.getElementById("weather-button").addEventListener("click", () => {
+  const city = document
+    .querySelector("#weather input[type='text']")
+    .value.trim();
+  if (city) {
+    fetchWeather(null, null, city);
+  }
+});
