@@ -128,6 +128,12 @@ const weather_div = document.getElementById("weather-content");
 // Funcion para obtener los datos del clima
 function fetchWeather(latitude, longitude, city = "", country = "") {
   const apiKey = process.env.API_KEY;
+  if (apiKey === undefined) {
+    console.error(
+      "API key is not defined. Please set the API_KEY in the .env file."
+    );
+    return;
+  }
   let url = "";
   if (city) {
     url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric&lang=es`;
