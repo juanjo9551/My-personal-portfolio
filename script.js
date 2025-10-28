@@ -127,7 +127,7 @@ const weather_div = document.getElementById("weather-content");
 
 // Funcion para obtener los datos del clima
 function fetchWeather(latitude, longitude, city = "", country = "") {
-  const apiKey = "e9a79f2647de0670e15c08260d446c90";
+  const apiKey = process.env.API_KEY;
   let url = "";
   if (city) {
     url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric&lang=es`;
@@ -166,15 +166,15 @@ function fetchWeather(latitude, longitude, city = "", country = "") {
       const iconCode = data.weather[0].icon;
       const iconUrl = `https://openweathermap.org/img/wn/${iconCode}@2x.png`;
       weather_div.innerHTML = `
-      <h3><strong>Clima en ${location}, ${
+        <h3><strong>Clima en ${location}, ${
         country || data.sys.country
       }:</strong></h3>
-      ${weatherDescription} <img width="30px" style="position:relative; top:8px;" src="${iconUrl}" alt="${weatherDescription} icon"><br>
-      Temperatura: ${temperature}°C<br>
-      Viento: ${wind} m/s ${windDirection}<br>
-      Humedad: ${humidity}%<br>
-      Lluvia (última hora): ${rain} mm
-      `;
+        ${weatherDescription} <img width="30px" style="position:relative; top:8px;" src="${iconUrl}" alt="${weatherDescription} icon"><br>
+        Temperatura: ${temperature}°C<br>
+        Viento: ${wind} m/s ${windDirection}<br>
+        Humedad: ${humidity}%<br>
+        Lluvia (última hora): ${rain} mm
+        `;
     })
     .catch((error) => console.error("Error fetching weather data:", error));
 }
