@@ -1,4 +1,4 @@
-# Mi Portafolio personal
+# Mi portafolio personal
 
 Soy Juan José Fernandez, estudiante de Licenciatura en Ciencias de la Computación, y este repositorio contiene mi portafolio personal de estilo one-page, desarrollado como sitio web estático para presentar mi identidad profesional, proyectos, referencias y datos de contacto.
 
